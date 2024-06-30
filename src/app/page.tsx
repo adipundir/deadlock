@@ -48,7 +48,7 @@ export default function Home() {
       </div>
       <div className="md:grid w-full grid-rows-1 md:grid-cols-2 md:px-10 justify-center items-center">
         <Header text="No trust factor" subtext="Period." description="All your data is permanently and securely stored on the blockchain, making it tamper-proof and preserved forever with end-to-end encryption." />
-        {window.innerWidth <= 768 ? "" : <GlobeDemo />}
+        {window && (window.innerWidth <= 768 ? "" : <GlobeDemo />)}
       </div>
     <div className="bg-black">
         <AuroraBackground className="bg-black">
