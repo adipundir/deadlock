@@ -11,11 +11,11 @@ import Link from "next/link";
 const words = ["Passwords", "Seed Phrase", "Secrets", "Photos", "Anything"];
 
 export default function Home() {
-  const [isClient, setIsClient] = useState(false);
+  // const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
 
   return (
     <div className="w-full overflow-hidden">
@@ -50,7 +50,8 @@ export default function Home() {
           subtext="Period."
           description="All your data is permanently and securely stored on the blockchain, making it tamper-proof and preserved forever with end-to-end encryption."
         />
-        {isClient && window.innerWidth > 768 && <GlobeDemo />}
+        {/* {isClient && window.innerWidth > 768 && <GlobeDemo />} */}
+        <GlobeDemo />
       </div>
       <div className="bg-black">
         <AuroraBackground className="bg-black">
