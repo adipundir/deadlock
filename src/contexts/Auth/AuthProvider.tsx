@@ -27,6 +27,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       try {
         const response = await axios.get("/api/users/getUser")
         console.log("got user in response")
+        console.log(response)
         if(response.data.success)
           setUser(response.data.user);
       } catch (error) {

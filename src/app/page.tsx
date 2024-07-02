@@ -37,7 +37,8 @@ export default function Home() {
             </p>
             <div className="flex flex-col justify-center sm:flex-row items-center gap-4 mt-6">
               <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
-                Try DeadLock
+                <Link href={"/signup"}>Try DeadLock</Link>
+                
               </button>
               <button className="px-4 py-2 text-white">Watch Demo</button>
             </div>

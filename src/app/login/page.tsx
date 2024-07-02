@@ -28,10 +28,8 @@ const Login = () => {
 
     const {user, setUser} = useContext(AuthContext)
 
-    //setup Router
     const router = useRouter();
     
-    // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -39,7 +37,7 @@ const Login = () => {
             password: ""
         },
     })
-    // 2. Submit handler.
+
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
             // if (user){

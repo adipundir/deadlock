@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request : NextRequest){
     try {
          const { account: sessionAccount } = await createSessionClientOnRequest(request);
-         const user = sessionAccount.get();
+         const user = await sessionAccount.get();
          console.log("user", user)
 
          return NextResponse.json({user, success : true})
