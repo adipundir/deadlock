@@ -14,6 +14,8 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
+import axios from "axios"
+import { toast } from "sonner"
 
 
 
@@ -42,14 +44,16 @@ const Navbar = () => {
   }, []);
 
   const Logout = async () => {
-    // try {
-    //   await account.deleteSessions()
-    //   setSideMenuOpen(false)
-    //   setUser(null)
-    //   router.replace("/")
-    // } catch (error) {
-    //   console.log("Logout error")
-    // }
+    try {
+      const response = await axios.get("/api/users/logout")
+      if(response.data.success)
+        toast(response.data.message)
+      setSideMenuOpen(false)
+      setUser(null)
+      router.replace("/")
+    } catch (error) {
+      console.log("Logout error")
+    }
   }
 
   const GoToLogin = () => {
