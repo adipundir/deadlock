@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     if(secret){
         const { account: sessionAccount } = await createSessionClientOnDemand(secret);
         const user = await sessionAccount.get();
-        console.log("user in Post User", user);
+        // console.log("user in Post User", user);
     
         return NextResponse.json({ user, success: true });
     }
