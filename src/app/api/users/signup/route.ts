@@ -14,19 +14,21 @@ export async function POST(request: NextRequest){
           console.log("google run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Google,
-            `https://0xdeadlock.vercel.app/extractParam`,
-            `https://0xdeadlock.vercel.app/unexpected`
+            "https://0xdeadlock.vercel.app/extractParam",
+            "https://0xdeadlock.vercel.app/unexpected"
           );
         }
         if(providerid === "apple"){
           console.log("apple run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Apple,
-            `https://0xdeadlock.vercel.app/extractParam`,
-            `https://0xdeadlock.vercel.app/unexpected`
+            "https://0xdeadlock.vercel.app/extractParam",
+            "https://0xdeadlock.vercel.app/unexpected"
           );
 
         }
+
+        //0xdeadlock.vercel.app/extractParam
         return NextResponse.json({
           message: authurl !== "" ? "Signup Success" : "Signup Failed",
           success: authurl !== "" ? true : false,
