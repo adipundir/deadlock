@@ -13,16 +13,16 @@ export async function POST(request: NextRequest){
           console.log("google run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Google,
-            "http://localhost:3000/extractParam",
-            "http://localhost:3000/unexpected"
+            `${request.nextUrl.origin}/extractParam`,
+            `${request.nextUrl.origin}/unexpected`
           );
         }
         if(providerid === "apple"){
           console.log("apple run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Apple,
-            "http://localhost:3000/extractParam",
-            "http://localhost:3000/unexpected"
+            `${request.nextUrl.origin}/extractParam`,
+            `${request.nextUrl.origin}/unexpected`
           );
 
         }
