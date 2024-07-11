@@ -4,6 +4,7 @@ import { OAuthProvider } from "node-appwrite";
 
 export async function POST(request: NextRequest){
     try {
+      console.log(request.nextUrl.origin);
       console.log("signup route run")
         const { providerid } = await request.json();
         let authurl = ""
@@ -13,16 +14,16 @@ export async function POST(request: NextRequest){
           console.log("google run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Google,
-            `${request.nextUrl.origin}/extractParam`,
-            `${request.nextUrl.origin}/unexpected`
+            `https://0xdeadlock.vercel.app/extractParam`,
+            `https://0xdeadlock.vercel.app/unexpected`
           );
         }
         if(providerid === "apple"){
           console.log("apple run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Apple,
-            `${request.nextUrl.origin}/extractParam`,
-            `${request.nextUrl.origin}/unexpected`
+            `https://0xdeadlock.vercel.app/extractParam`,
+            `https://0xdeadlock.vercel.app/unexpected`
           );
 
         }
