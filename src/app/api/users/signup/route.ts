@@ -11,19 +11,18 @@ export async function POST(request: NextRequest){
         const { account } = await createAuthAdminClient();
 
         if(providerid === "google"){
-          console.log("google run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Google,
-            "https://0xdeadlock.vercel.app/extractParam",
-            "https://0xdeadlock.vercel.app/unexpected"
+            `${request.nextUrl.origin}/extractParam`,
+            `${request.nextUrl.origin}//unexpected`
           );
         }
         if(providerid === "apple"){
           console.log("apple run")
           authurl = await account.createOAuth2Token(
             OAuthProvider.Apple,
-            "https://0xdeadlock.vercel.app/extractParam",
-            "https://0xdeadlock.vercel.app/unexpected"
+            `${request.nextUrl.origin}/extractParam`,
+            `${request.nextUrl.origin}//unexpected`
           );
 
         }

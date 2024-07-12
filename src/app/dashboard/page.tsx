@@ -13,7 +13,7 @@ import { toast } from "sonner"
 
 export default function Dashboard() {
     const router = useRouter()
-    const {user} = useContext(AuthContext)
+    const {user, setUser} = useContext(AuthContext)
     const [files, setFiles] = useState([])
    
 
@@ -39,7 +39,8 @@ export default function Dashboard() {
             formData.append("userid", userid); 
 
             const response = await axios.post('api/data/uploadFile', formData);
-            getFiles()
+            const updatedUser = response.data.user
+            setUser(updatedUser)
             toast(response.data.message);
         } catch (error: any) {
             console.log(error.message);
@@ -49,7 +50,7 @@ export default function Dashboard() {
     
     useEffect(() => {
         if(user){
-            console.log(user)
+            console.log("new User",user)
             getFiles();
         }
     },[user])
